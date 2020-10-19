@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_104253) do
+ActiveRecord::Schema.define(version: 2020_10_19_121656) do
+
+  create_table "meals", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "food"
+    t.integer "calories"
+    t.integer "protein"
+    t.integer "carbs"
+    t.integer "fats"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meals_on_user_id"
+  end
 
   create_table "user_preferences", force: :cascade do |t|
     t.integer "user_id"
@@ -31,5 +43,6 @@ ActiveRecord::Schema.define(version: 2020_10_19_104253) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "meals", "users"
   add_foreign_key "user_preferences", "users"
 end

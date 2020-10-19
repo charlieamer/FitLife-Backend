@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meals
   post 'user_token' => 'user_token#create'
 
   get 'user_preference' => 'user_preferences#index' 
