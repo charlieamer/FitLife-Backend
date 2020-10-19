@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_094735) do
+ActiveRecord::Schema.define(version: 2020_10_19_104253) do
 
   create_table "user_preferences", force: :cascade do |t|
     t.integer "user_id"
