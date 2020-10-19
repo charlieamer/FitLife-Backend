@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::API
-  include Knock::Authenticate
+  include Knock::Authenticable
 end
