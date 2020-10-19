@@ -9,7 +9,7 @@ class MealsController < ApplicationController
       @meals = user_meal.all
     else
       date = Date.parse(date)
-      @meals = user_meal.where(created_at: date.midnight..date.end_of_day)
+      @meals = user_meal.where(date: date)
     end
 
     render json: @meals
@@ -57,7 +57,7 @@ class MealsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def meal_params
-      ret = params.require(:meal).permit(:food, :calories, :protein, :carbs, :fats)
+      ret = params.require(:meal).permit(:food, :calories, :protein, :carbs, :fats, :date)
       ret[:user] = current_user
       return ret
     end
